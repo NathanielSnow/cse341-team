@@ -1,3 +1,5 @@
+/*
+
 //TA03 PLACEHOLDER
 const express = require("express");
 const router = express.Router();
@@ -32,5 +34,17 @@ router.post("/itemSearch", (req, res, next) => {
   });
   res.redirect("/ta03");
 });
+
+module.exports = router;
+
+*/
+
+//TA03 PLACEHOLDER
+const express = require("express");
+const router = express.Router();
+const ta03Controller = require("../controllers/ta03.js");
+
+router.get("/", ta03Controller.getProducts);
+router.get("/search", ta03Controller.getSearchProducts);
 
 module.exports = router;
