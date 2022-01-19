@@ -11,23 +11,21 @@
         <h1><%= title %></h1>
         <p>This is the placeholder for Team Activity 02</p>
         <form action="/ta02/addUser" method="POST">
-          <label for="addUser">Add</label>
           <input type="text" name="addUser" />
-          <button type="submit">Add User</button>
+          <button type="submit">Add user</button>
         </form>
-        <form action="/ta02/removeUser" method="POST">
-          <label for="removeUser">Remove</label>
-          <input type="text" name="removeUser" />
-          <button type="submit">Remove User</button>
-        </form>
-        <% if (users.length) { %>
-        <h1>List of Users</h1>
+        <% if(users.length){ %>
+        <h1>List of users</h1>
         <ul>
-          <% for ( user of users) { %>
-          <li><%= user.name %></li>
+          <% for(let user of users) { %>
+          <li><%= user.Name %></li>
           <% } %>
         </ul>
         <% } %>
+        <form action="/ta02/removeUser" method="POST">
+          <input type="text" name="removeUser" />
+          <button type="submit">Remove user</button>
+        </form>
       </div>
     </div>
     <div class="container"></div>

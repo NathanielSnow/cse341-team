@@ -3,16 +3,7 @@
 const express = require("express");
 const router = express.Router();
 
-const users = []; //Tribett
-
-function searchUsers(user, userArray) {
-  for (let i = 0; i < userArray.length; i++) {
-    if (userArray[i] === user) {
-      return i;
-    }
-    return -1;
-  }
-}
+const users = [];
 
 router.get("/", (req, res, next) => {
   res.render("pages/ta02", {
@@ -25,16 +16,19 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/addUser", (req, res, next) => {
-  users.push({ name: req.body.addUser });
+  users.push({ Name: req.body.addUser });
   res.redirect("/ta02/");
 });
 
 router.post("/removeUser", (req, res, next) => {
   const name = req.body.removeUser;
-  let userPos = searchUsers(name, users);
-  const index = users.indexOf();
-  if (index > -1) {
-    users.splice(index, userPos);
+
+  for (let user of users) {
+    if (user.Name === name) {
+      let index = users.indexOf(user);
+      users.splice(index, 1);
+      break;
+    }
   }
   res.redirect("/ta02/");
 });
