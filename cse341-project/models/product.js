@@ -1,3 +1,4 @@
+/*
 // Product model
 
 const fs = require("fs");
@@ -41,49 +42,49 @@ module.exports = class Product {
       .catch((err) => console.log(err));
   }
 };
+*/
+
+const fs = require("fs");
 
 // // Using local products.json file
-// const path = require('path');
-// const p = path.join(__dirname, '..', 'data', 'products.json');
+const path = require("path");
+const p = path.join(__dirname, "..", "data", "products.json");
 
-// module.exports = class Product {
-//     static fetchAll(cb) {
+module.exports = class Product {
+  static fetchAll(cb) {
+    fs.readFile(p, (err, fileContent) => {
+      let products;
+      if (err) {
+        products = [];
+      } else {
+        products = JSON.parse(fileContent);
+      }
+      cb(products);
+    });
+  }
 
-//         fs.readFile(p, (err, fileContent) => {
-//             let products;
-//             if (err) {
-//                 products = [];
-//             } else {
-//                 products = JSON.parse(fileContent);
-//             }
-//             cb(products);
-//         });
-//     }
+  static search(query, cb) {
+    fs.readFile(p, (err, fileContent) => {
+      let products;
+      if (err) products = [];
+      else products = JSON.parse(fileContent);
 
-//     static search(query, cb) {
-//         fs.readFile(p, (err, fileContent) => {
-//             let products;
-//             if (err)
-//                 products = [];
-//             else
-//                 products = JSON.parse(fileContent);
+      // search products
+      const filteredProducts = products.filter((product) => {
+        // search product tags
+        let tagFound = false;
+        product.tags.forEach((tag) => {
+          if (tag.toLowerCase().includes(query)) tagFound = true;
+        });
 
-//             // search products
-//             const filteredProducts = products.filter(product => {
-//                 // search product tags
-//                 let tagFound = false;
-//                 product.tags.forEach(tag => {
-//                     if (tag.toLowerCase().includes(query))
-//                         tagFound = true;
-//                 });
+        return (
+          tagFound ||
+          product.name.toLowerCase().includes(query) ||
+          product.description.toLowerCase().includes(query)
+        );
+      });
 
-//                 return tagFound ||
-//                     product.name.toLowerCase().includes(query) ||
-//                     product.description.toLowerCase().includes(query);
-//             });
-
-//             cb(filteredProducts);
-
-//         });
-//     }
-// };
+      cb(filteredProducts);
+    });
+  }
+};
