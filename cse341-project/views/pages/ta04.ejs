@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <% include ../includes/header.ejs %>
+  </head>
 
-<head>
-  <% include ../includes/header.ejs %>
-</head>
-
-<body>
-  <% include ../includes/nav.ejs %>
+  <body>
+    <% include ../includes/nav.ejs %>
     <div class="jumbotron text-center">
       <div class="container">
-        <h1 class="stylize" style="color: <%= textColor %>">
-          <%= title %>
-        </h1>
+        <!-- <%= textColor %> -->
+        <h1 class="stylize" style="color: red"><%= title %></h1>
         <form action="/ta04/change-style" method="POST">
-            <button type="submit">Stylize</button>
+          <button type="submit">Stylize</button>
         </form>
         <form action="/ta04/counter" method="POST">
-            <button type="submit">Increase</button>
-            <input type="hidden" name="increase" value="true">
+          <button type="submit">Increase</button>
+          <input type="hidden" name="increase" value="true" />
         </form>
         <form action="/ta04/counter" method="POST">
-            <button type="submit">Decrease</button>
-            <input type="hidden" name="increase" value="false">
+          <button type="submit">Decrease</button>
+          <input type="hidden" name="increase" value="false" />
         </form>
         <p><%= countNumber %></p>
         <form action="/ta04/reset" method="POST">
-            <button type="submit">Reset</button>
+          <button type="submit">Reset</button>
         </form>
       </div>
     </div>
-    <div class="container">
-
-    </div>
-
-
-</body>
-
+    <div class="container"></div>
+  </body>
 </html>
