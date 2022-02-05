@@ -43,5 +43,9 @@
 }
 
 form {
-  color: black;
+    color: black;
+}
+
+.stylize {
+    color: white;
 }

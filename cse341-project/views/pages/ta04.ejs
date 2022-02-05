@@ -9,10 +9,24 @@
   <% include ../includes/nav.ejs %>
     <div class="jumbotron text-center">
       <div class="container">
-        <h1>
+        <h1 class="stylize" style="color: <%= textColor %>">
           <%= title %>
         </h1>
-        <p>This is the placeholder for Team Activity 04</p>
+        <form action="/ta04/change-style" method="POST">
+            <button type="submit">Stylize</button>
+        </form>
+        <form action="/ta04/counter" method="POST">
+            <button type="submit">Increase</button>
+            <input type="hidden" name="increase" value="true">
+        </form>
+        <form action="/ta04/counter" method="POST">
+            <button type="submit">Decrease</button>
+            <input type="hidden" name="increase" value="false">
+        </form>
+        <p><%= countNumber %></p>
+        <form action="/ta04/reset" method="POST">
+            <button type="submit">Reset</button>
+        </form>
       </div>
     </div>
     <div class="container">
