@@ -1,0 +1,1 @@
+{"password":"$2a$12$2LxMYO/gKL5jHjNqpbEgFOBjgC.5fEnP4nNDs8oqC2hWknOlsHQM.","email":""}

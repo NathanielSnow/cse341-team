@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../includes/header.ejs %>
+  </head>
+
+  <body>
+    <% include ../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1><%= title %></h1>
+        <p><%= signUpMessage %></p>
+        <form class="testForm" action="/ta06/signup" method="POST">
+          <label for="userEmail">Email: </label>
+          <input
+            type="email"
+            name="userEmail"
+            placeholder="smith@email.com"
+          /><br />
+          <label for="userPassword">Password: </label>
+          <input type="password" name="userPassword" />
+          <br /><br />
+
+          <button type="submit">Submit</button>
+        </form>
+        <br />
+        <h1>Login</h1>
+        <br />
+        <p><%= loginMessage %></p>
+        <form class="testForm" action="/ta06/login" method="POST">
+          <label for="userEmail">Email: </label>
+          <input
+            type="email"
+            name="userEmail"
+            placeholder="smith@email.com"
+          /><br />
+          <label for="userPassword">Password: </label>
+          <input type="password" name="userPassword" />
+          <br /><br />
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="container"></div>
+  </body>
+</html>

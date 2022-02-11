@@ -43,9 +43,42 @@
 }
 
 form {
-    color: black;
+  color: black;
 }
 
 .stylize {
-    color: white;
+  color: white;
 }
+/*
+.testForm {
+  margin: auto;
+
+  margin-top: 5em;
+  width: 500px;
+}
+
+.testForm label {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+}
+
+.testForm input {
+  margin-bottom: 0.5em;
+}
+
+.testForm input:focus {
+  border-color: yellow;
+  border-width: 5px;
+}
+
+.testForm button {
+  
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}*/
